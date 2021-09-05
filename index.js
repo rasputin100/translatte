@@ -348,7 +348,8 @@ const translatte = async (text, opts) => {
             try {
                 translate = await got(url, {...opts.proxy, json: true, timeout: 10000, headers: opts.headers, retry: 0});
             } catch (e) {
-                return reject({google_free: errors[4]});
+                //return reject({google_free: errors[4]});
+                return reject(e);
             }
 
             result.raw = opts.raw
