@@ -395,8 +395,9 @@ const translatte = async (text, opts) => {
     if (opts && opts.proxy && opts.proxy.agent) {
         return proxy_check(result.proxy).then(() => {
             return translate_string();
-        }).catch(() => {
-            return Promise.reject({google_free: result.proxy});
+        }).catch((e) => {
+            return e;
+            //return Promise.reject({google_free: result.proxy});
         });
     } else {
         return translate_string();
